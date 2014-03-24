@@ -1,5 +1,5 @@
 class Link
-  include Datamapper::Resource
+  include DataMapper::Resource
 
   property :id, Serial
   property :title, String
