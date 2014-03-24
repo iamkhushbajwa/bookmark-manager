@@ -1,4 +1,4 @@
-require "tag"
+require './lib/tag'
 
 class Link
   include DataMapper::Resource
