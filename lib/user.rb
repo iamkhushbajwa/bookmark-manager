@@ -9,7 +9,7 @@ class User
 
   property :id, Serial
   property :email, String
-  property :password_digest, Text
+  property :password_digest, Text, :unique => true
 
   def password=(password)
     @password = password
