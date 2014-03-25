@@ -1,10 +1,6 @@
 /* Eric Meyer's Reset CSS v2.0 - http://cssreset.com */
 html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{border:0;font-size:100%;font:inherit;vertical-align:baseline;margin:0;padding:0}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:none}table{border-collapse:collapse;border-spacing:0}
 
-/*a:link, a:visited, a:hover, a:active{
-	text-decoration: none;
-}*/
-
 body{
 	background-color: #ed872d
 }
@@ -12,6 +8,11 @@ body{
 header{
 	background-color: #808080;
 	height: 60px;
+	display: flex;
+}
+
+#logo{
+	float: left;
 }
 
 .logo{
@@ -21,13 +22,21 @@ header{
 	font-size: 50px;
 }
 
-#logo{
-	float: left;
+#add-link{
+	float: center;
+	margin: 5px 0 0 10%;
 }
 
-#user-sign{
+a.user-button.highlighted{
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #446ccf), color-stop(1, #1164b4) );
+	background:-moz-linear-gradient( center top, #446ccf 5%, #1164b4 100% );
+	-webkit-box-shadow:inset 0px 1px 0px 0px #6082b6;-moz-box-shadow:inset 0px 1px 0px 0px #6082b6;box-shadow:inset 0px 1px 0px 0px #6082b6;
+	border:2px solid #6082b6;
+}
+
+#user-links{
 	float: right;
-	margin: 5px 5px 0 0;
+	margin: 5px 0 0 20%;
 }
 
 .user-button {
@@ -52,11 +61,14 @@ header{
 	text-align:center;
 	text-shadow:1px 1px 0px #ce8e28;
 }
+
 .user-button:hover {
 	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #eeaf41), color-stop(1, #ffce79) );background:-moz-linear-gradient( center top, #eeaf41 5%, #ffce79 100% );
 	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#eeaf41', endColorstr='#ffce79');
 	background-color:#eeaf41;
-}.user-button:active {
+}
+
+.user-button:active {
 	position:relative;
 	top:1px;
 }
