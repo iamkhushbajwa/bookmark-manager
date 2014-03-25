@@ -24,6 +24,10 @@ post '/links' do
   redirect to('/')
 end
 
+get '/links/new' do
+  erb :"links/new"
+end
+
 get '/tags/:text' do
   tag = Tag.first(:text => params[:text])
   @links = tag ? tag.links : []
