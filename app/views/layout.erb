@@ -32,22 +32,10 @@
 			</div>
 		</header>
 
-		<% if flash[:notice] %>
-			<div class="flash notice">
-				<%= flash[:notice] %>
-			</div>
-		<% end %>
-
-		<% if flash[:errors] && !flash[:errors].empty? %>
-			<ul>
-				<% flash[:errors].each do |error| %>
-					<li class="flash error"><%= error %></li>
-				<% end %>
-			</ul>
-		<% end %>
-
-		<%= yield %>
-
+		<%= partial :flash %>
+		<div id="container">
+			<%= yield %>
+		</div>
 		<div class="push"></div>
 	</div>
 		<footer>

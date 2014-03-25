@@ -18,6 +18,12 @@ header{
 	font-size: 50px;
 }
 
+h1{
+	font-family: 'Metrophobic', sans-serif;
+	font-size: 50px;
+	padding-bottom: 10px;
+}
+
 #add-link{
 	padding: 5px 0 0 10px;
 }
@@ -77,17 +83,20 @@ a.user-button.highlighted{
 	top:1px;
 }
 
-#links{
+#container{
 	background-color: #2d93ed;
 	margin: 10px 10px 10px 10px;
 	border: solid #bb6010;
+	min-height: 100px;
+	text-align: center;
 }
 
 .link{
 	background-color: #75b8f3;
 	box-shadow: 0 0 5px rgba(0,0,0,0.4);
-	margin: 10px inherit;
+	margin: 10px;
 	padding: 15px 10px;
+	text-align: left;
 }
 
 .link a.title{
