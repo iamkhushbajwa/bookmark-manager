@@ -3,15 +3,27 @@
 <head>
 	<title>Bookmark Manager</title>
 	<link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
+	<link href='http://fonts.googleapis.com/css?family=Metrophobic' rel='stylesheet' type='text/css'>
 </head>
 	<body>
-		<% if current_user %>
-			Welcome, <%= current_user.email %>
-			<form method="post" action="/sessions">
-				<input type="hidden" name="_method" value="delete">
-				<input type="submit" value="Sign out">
-			</form>
-		<% end %>
+		<header>
+			<div id="logo"><a class="logo" href="/">Bookmark Manager</a></div>
+			<div id="user-links">
+				<% if current_user %>
+				<span id="welcome-message">
+					Welcome, <%= current_user.email %>
+				</span>
+				<form id="sign-out" method="post" action="/sessions">
+					<input type="hidden" name="_method" value="delete">
+					<input type="submit" value="Sign out">
+				</form>
+			<% end %>
+			</div>
+			<div id="user-sign">
+				<a href="/users/new" class="user-button">Sign up</a>
+				<a href="/sessions/new" class="user-button">Sign in</a>
+			</div>
+		</header>
 
 		<% if flash[:notice] %>
 			<div id="notice">
