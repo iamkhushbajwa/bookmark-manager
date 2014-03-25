@@ -1,4 +1,5 @@
 require 'sinatra'
+require 'sinatra/partial'
 require 'data_mapper'
 require 'rack-flash'
 require './lib/link'
@@ -10,6 +11,7 @@ require_relative 'data_mapper_setup'
 enable :sessions
 set :session_secret, 'super secret'
 use Rack::Flash
+set :partial_template_engine, :erb
 
 get '/' do
   @links = Link.all

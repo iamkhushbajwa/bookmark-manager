@@ -6,11 +6,12 @@
 	<link href='http://fonts.googleapis.com/css?family=Metrophobic' rel='stylesheet' type='text/css'>
 </head>
 	<body>
+	<div class="wrapper">
 		<header>
 			<div id="logo">
 				<a class="logo" href="/">Bookmark Manager</a>
 			</div>
-			
+
 			<div id="add-link">
 				<a href="/links/new" class="user-button highlighted">Add link</a>
 			</div>
@@ -22,7 +23,7 @@
 				</span>
 				<form id="sign-out" method="post" action="/sessions">
 					<input type="hidden" name="_method" value="delete">
-					<input type="submit" value="Sign out">
+					<input type="submit" class="user-button" value="Sign out">
 				</form>
 			<% else %>
 				<a href="/users/new" class="user-button">Sign up</a>
@@ -47,5 +48,32 @@
 		<% end %>
 
 		<%= yield %>
+		<div class="push"></div>
+	</div>
+		<footer>
+			<div id="makersacademy-logo">
+				<a href="http://www.makersacademy.com/">
+					<img src="http://www.makersacademy.com/images/logo.png">
+				</a>
+			</div>
+			<div id="technologies">
+				<p>
+					I built this page at <a href="http://www.makersacademy.com/">Makers Academy</a>, a highly selective 12 week coding course in London.
+				</p>
+				<p>
+					This website is built using Ruby, Sinatra, RSpec, Capybara, HTML and CSS.
+				</p>
+			</div>
+		</footer>
+
 	</body>
 </html>
+
+
+
+
+
+
+
+
+

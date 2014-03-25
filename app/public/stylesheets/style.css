@@ -11,10 +11,6 @@ header{
 	display: flex;
 }
 
-#logo{
-	float: left;
-}
-
 .logo{
 	color: #ed872d;
 	text-decoration: none;
@@ -23,8 +19,7 @@ header{
 }
 
 #add-link{
-	float: center;
-	margin: 5px 0 0 10%;
+	padding: 5px 0 0 10px;
 }
 
 a.user-button.highlighted{
@@ -32,11 +27,17 @@ a.user-button.highlighted{
 	background:-moz-linear-gradient( center top, #446ccf 5%, #1164b4 100% );
 	-webkit-box-shadow:inset 0px 1px 0px 0px #6082b6;-moz-box-shadow:inset 0px 1px 0px 0px #6082b6;box-shadow:inset 0px 1px 0px 0px #6082b6;
 	border:2px solid #6082b6;
+	width:110px;
+}
+
+#welcome-message{
+	padding: 15px 10px 0 0;
 }
 
 #user-links{
 	float: right;
-	margin: 5px 0 0 20%;
+	padding: 5px 0 0 10%;
+	display: flex;
 }
 
 .user-button {
@@ -72,3 +73,104 @@ a.user-button.highlighted{
 	position:relative;
 	top:1px;
 }
+
+#links{
+	background-color: #2d93ed;
+	margin: 10px 10px 10px 10px;
+	border: solid #bb6010;
+}
+
+.link{
+	background-color: #75b8f3;
+	box-shadow: 0 0 5px rgba(0,0,0,0.4);
+	margin: 10px inherit;
+	padding: 15px 10px;
+}
+
+.link a.title{
+	letter-spacing: 1px;
+	text-decoration: none;
+	color: #733b0a;
+}
+
+.link .description{
+	margin: 10px inherit;
+}
+
+.link .source{
+	float: right;
+	font-size: 12px;
+}
+
+.link .source a.user{
+	text-decoration: none;
+	color: #733b0a;
+}
+
+footer{
+	display: flex;
+	background-color: rgba(0,0,0,0.2);
+}
+
+footer > * {
+	margin: auto inherit;
+}
+
+footer img{
+	vertical-align: top;
+}
+
+footer #technologies{
+	-webkit-flex: 1;
+	flex: 1;
+}
+
+footer p{
+	padding: 5px 25px;
+}
+
+*{
+	margin: 0;
+	box-sizing: border-box;
+}
+
+html,body{
+	height: 100%
+}
+
+.wrapper{
+	min-height: 100%;
+	height: auto !important;
+	height: 100%;
+	margin: 0 auto -4.4em;
+}
+
+footer, .push{
+	height: 4.4em;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
