@@ -6,5 +6,5 @@
 
 <h3>Available Tags</h3>
 |<% @available_tags.each do |tag| %>
-	<a href="/tags/<%= tag.text %>"><%= tag.text %></a> |
+	<a href="/tags/<%= tag.text %>"><%= tag.text.capitalize %></a> |
 <% end %>
