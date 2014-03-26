@@ -84,10 +84,31 @@ feature "Favourites" do
     expect(page).to have_content("Yahoo")
     expect(page).not_to have_content("Bing")
 
-    expect(page).to have_content("searching")
-    expect(page).to have_content("entertainmenting")
+    expect(page).to have_content("Searching")
+    expect(page).to have_content("Entertainmenting")
     expect(page).not_to have_content("Crap")
 
     expect(page).to have_content("Sam")
+  end
+end
+
+feature "Forgotten password" do
+  before(:each) do
+    User.create(:id => 1, :email => 'khushkaran@me.com', :password => 'test', :password_confirmation => 'test')
+  end
+  scenario "Users can reset their password" do
+    user = User.first
+    visit '/sessions/new'
+    click_on "Forgotten password?"
+    expect(page).to have_content("Password Retrieval")
+    expect(page).not_to have_content("Please log in")
+    fill_in 'email', with: 'khushkaran@me.com'
+    click_button 'Reset'
+    visit "/users/reset/#{user.password_token}"
+    fill_in 'password', with: 'test1'
+    fill_in 'password_confirmation', with: 'test1'
+    click_button 'Submit'
+    sign_in('khushkaran@me.com','test1')
+    expect(page).to have_content("Welcome, ")
   end
 end
