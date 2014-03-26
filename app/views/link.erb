@@ -4,6 +4,12 @@
 		Lorum ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
 	</div>
 	<span class="source">
-		added yesterday by <a class="user" href="#">khushkaran@me.com</a>
+		added yesterday by <a class="user" href="#">
+		<% if link.user_id == "Anonymous" || link.user_id == nil%>
+			<%= "Anonymous" %>
+		<% else %>
+			<%= User.get(link.user_id).email %>
+		<% end %>
+		</a>
 	</span>
 </li>

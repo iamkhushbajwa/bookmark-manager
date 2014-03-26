@@ -15,14 +15,18 @@ set :partial_template_engine, :erb
 
 get '/' do
   @links = Link.all
+  tags = Tag.all
+  @available_tags = tags.map{|tag| tag.text}.join(", ")
+  
   erb :index
 end
 
 post '/links' do
   url = params["url"]
   title = params["title"]
+  user_id = session[:user_id] || "Anonymous"
   tags = params["tags"].split(" ").map { |tag| Tag.first_or_create(:text => tag) }
-  Link.create(:url => url, :title => title, :tags => tags)
+  Link.create(:url => url, :title => title, :tags => tags, :user_id => user_id)
   redirect to('/')
 end
 

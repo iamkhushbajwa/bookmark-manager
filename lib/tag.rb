@@ -5,5 +5,6 @@ class Tag
 
   property :id, Serial
   property :text, String
+  property :user_id, String
   
 end
