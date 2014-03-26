@@ -69,6 +69,13 @@ get '/sessions/new' do
   erb :"sessions/new"
 end
 
+get '/users/current' do
+  @user_links = Link.all(:user_id => session[:user_id])
+  @user_tags = Tag.all(:user_id => session[:user_id])
+  @user_favs = User.get(session[:user_id]).links
+  current_user ? (erb :"users/current") : (redirect to('/'))
+end
+
 post '/sessions' do
   email, password = params[:email], params[:password]
   user = User.authenticate(email, password)

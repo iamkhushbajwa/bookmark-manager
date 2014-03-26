@@ -52,8 +52,18 @@ a.user-button.highlighted{
 	font-family: 'Metrophobic', sans-serif;
 }
 
+#profile-container{
+	overflow: hidden;
+	padding-bottom: 20px;
+}
+
+#profile-container .col{
+	width: 33%;
+	float: left;
+}
+
 #user-links{
-	float: right;
+	float: left;
 	padding: 5px 0 0 10%;
 	display: flex;
 }
