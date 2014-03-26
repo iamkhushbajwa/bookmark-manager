@@ -56,5 +56,14 @@ feature "User signs out" do
   end
 end
 
-
-
+feature "Favourites" do
+    scenario "User favourites a link" do
+    User.create(:email => 'test@test.com', :password => 'test', :password_confirmation => 'test')
+    Link.create(:url => "http://www.google.com", :title => "Google", :tags => [Tag.first_or_create(:text => 'search')], :user_id => 1)
+    sign_in('test@test.com', 'test')
+    user = User.first
+    visit '/'
+    click_button 'Add Google to favourites'
+    expect(user.links.map(&:title)).to include("Google")
+  end
+end

@@ -187,7 +187,9 @@ footer, .push{
 	background-color: rgba(250,0,0,0.75);
 }
 
-
+.favourite{
+	float: right;
+}
 
 
 

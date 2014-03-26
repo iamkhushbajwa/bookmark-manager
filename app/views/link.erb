@@ -1,14 +1,22 @@
 <li class="link">
+	<% if current_user %>
+	<form action="/favourite" method="post">
+		<button class="favourite" name="link_id" value="<%= link.id %>">
+			Add <%= link.title %> to favourites
+		</button>
+	</form>
+	<% end %>
 	<a class="title" href="<%= link.url %>"><%= link.title %></a>
 	<div class="description">
 		Lorum ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
 	</div>
+
 	<span class="source">
 		added yesterday by <a class="user" href="#">
-		<% if link.user_id == "Anonymous" || link.user_id == nil%>
-			<%= "Anonymous" %>
-		<% else %>
+		<% if User.get(link.user_id) %>
 			<%= User.get(link.user_id).email %>
+		<% else %>
+			<%= "Anonymous" %>
 		<% end %>
 		</a>
 	</span>
