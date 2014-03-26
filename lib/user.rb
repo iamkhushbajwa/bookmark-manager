@@ -10,6 +10,7 @@ class User
   property :id, Serial
   property :email, String, :unique => true, :message => "This email has already been taken"
   property :password_digest, Text
+  has n, :links, :through => Resource
 
   def password=(password)
     @password = password
