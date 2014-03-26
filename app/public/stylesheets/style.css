@@ -46,10 +46,15 @@ a.user-button.highlighted{
 	text-indent:-5px;
 }
 
-#welcome-message{
+.welcome-message{
 	padding: 15px 10px 0 0;
 	color: #FFF;
 	font-family: 'Metrophobic', sans-serif;
+}
+
+a.welcome-message{
+	text-decoration: none;
+	color: #FFC
 }
 
 #profile-container{
