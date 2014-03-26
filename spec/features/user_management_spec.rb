@@ -65,5 +65,6 @@ feature "Favourites" do
     visit '/'
     click_button 'Add Google to favourites'
     expect(user.links.map(&:title)).to include("Google")
+    expect(page).to have_content("1 added yesterday by ")
   end
 end
