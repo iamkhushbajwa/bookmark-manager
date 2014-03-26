@@ -2,7 +2,7 @@
 	<% if current_user %>
 	<form action="/favourite" method="post">
 		<button class="favourite" name="link_id" value="<%= link.id %>">
-			Add <%= link.title %> to favourites
+			Favourite <%= link.title %>
 		</button>
 	</form>
 	<% end %>
@@ -13,7 +13,7 @@
 
 	<span class="source">
 		<% if link.users.count > 0 %>
-		<img class="fav-ico" src="/images/heart.ico" height="12px" width="12px"><%= link.users.count %>
+		<img class="fav-ico" src="/images/heart.ico"><%= link.users.count %>
 		<% end %>
 		added yesterday by <a class="user" href="#">
 		<% if User.get(link.user_id) %>

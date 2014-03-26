@@ -63,7 +63,7 @@ feature "Favourites" do
     sign_in('test@test.com', 'test')
     user = User.first
     visit '/'
-    click_button 'Add Google to favourites'
+    click_button 'Favourite Google'
     expect(user.links.map(&:title)).to include("Google")
     expect(page).to have_content("1 added yesterday by ")
   end
