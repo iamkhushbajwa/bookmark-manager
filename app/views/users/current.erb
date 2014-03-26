@@ -3,21 +3,21 @@
 	<div class="col">
 		<h3>Your Links</h3>
 		<% @user_links.each do |link| %>
-			<a class="title" href="<%= link.url %>"><%= link.title %></a><br/>
+			<a class="prof-title" href="<%= link.url %>"><%= link.title %></a><br/>
 		<% end %>
 	</div>
 
 	<div class="col">
 		<h3>Your Tags</h3>
 		<% @user_tags.each do |tag| %>
-			<a class="title" href="#"><%= tag.text %></a><br/>
+			<a class="prof-title" href="#"><%= tag.text %></a><br/>
 		<% end %>
 	</div>
 
 	<div class="col">
 		<h3>Favourite Links</h3>
 		<% @user_favs.each do |fav| %>
-			<a class="title" href="<%= fav.url %>"><%= fav.title %></a><br/>
+			<a class="prof-title" href="<%= fav.url %>"><%= fav.title %></a><br/>
 		<% end %>
 	</div>
 </div>

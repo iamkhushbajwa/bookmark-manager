@@ -123,6 +123,11 @@ a.welcome-message{
 	text-align: left;
 }
 
+a.prof-title{
+	text-decoration: none;
+	color: #733b0a
+}
+
 .link a.title{
 	letter-spacing: 1px;
 	text-decoration: none;
