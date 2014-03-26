@@ -57,7 +57,7 @@ feature "User signs out" do
 end
 
 feature "Favourites" do
-    scenario "User favourites a link" do
+  scenario "User favourites a link" do
     User.create(:email => 'test@test.com', :password => 'test', :password_confirmation => 'test')
     Link.create(:url => "http://www.google.com", :title => "Google", :tags => [Tag.first_or_create(:text => 'search')], :user_id => 1)
     sign_in('test@test.com', 'test')

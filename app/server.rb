@@ -33,7 +33,9 @@ end
 post '/favourite' do
   link = Link.get(params[:link_id])
   user = User.get(session[:user_id])
-  user.update(:links => [link])
+  favourites = user.links
+  favourites << link
+  user.update(:links => favourites)
   redirect to('/')
 end
 
