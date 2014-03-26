@@ -15,9 +15,7 @@ set :partial_template_engine, :erb
 
 get '/' do
   @links = Link.all
-  tags = Tag.all
-  @available_tags = tags.map{|tag| tag.text}.join(", ")
-
+  @available_tags = Tag.all
   erb :index
 end
 
@@ -46,6 +44,7 @@ end
 get '/tags/:text' do
   tag = Tag.first(:text.like => params[:text].downcase)
   @links = tag ? tag.links : []
+  @available_tags = Tag.all
   erb :index
 end
 
