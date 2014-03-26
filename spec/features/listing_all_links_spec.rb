@@ -13,8 +13,8 @@ feature 'User browses the list of links' do
     expect(page).to have_content("London School of Economics")
   end
 
-  scenario "filtered by a tag" do
-    visit '/tags/search'
+  scenario "filtered by a tag regardless of case" do
+    visit '/tags/Search'
     expect(page).not_to have_content("London School of Economics")
     expect(page).not_to have_content("Code.org")
     expect(page).to have_content("Google")

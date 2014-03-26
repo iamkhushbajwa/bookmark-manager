@@ -25,7 +25,7 @@ post '/links' do
   url = params["url"]
   title = params["title"]
   user_id = session[:user_id] || 0
-  tags = params["tags"].split(" ").map { |tag| Tag.first_or_create(:text => tag) }
+  tags = params["tags"].split(" ").map { |tag| Tag.first_or_create(:text => tag.downcase) }
   Link.create(:url => url, :title => title, :tags => tags, :user_id => user_id)
   redirect to('/')
 end
@@ -44,7 +44,7 @@ get '/links/new' do
 end
 
 get '/tags/:text' do
-  tag = Tag.first(:text => params[:text])
+  tag = Tag.first(:text.like => params[:text].downcase)
   @links = tag ? tag.links : []
   erb :index
 end
