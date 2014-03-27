@@ -4,6 +4,18 @@ require_relative 'helpers/session'
 include SessionHelpers
 
 feature "User signs up" do
+  before(:each) do
+    stub_request(:post, "https://api:key-5nf12qypu5-l7q1-lfhjazkd6xj97d75@api.mailgun.net/v2/app23401830.mailgun.org/messages").
+            with(:body => {"from"=>"admin@bookmark-manager.com",
+                           "subject"=>"Welcome to Bookmark Manager",
+                           "text"=>"Dear User, we would like to welcome you to Bookmark Manager, a place to share your favourite links with the world. Now you have signed up the world can see what links you have contributed and you can like links!",
+                           "to"=>"alice@example.com"},
+                 :headers => {'Accept'=>'*/*; q=0.5, application/xml',
+                              'Accept-Encoding'=>'gzip, deflate',
+                              'Content-Type'=>'application/x-www-form-urlencoded',
+                              'User-Agent'=>'Ruby'}).
+       to_return(:status => 200, :body => "", :headers => {})
+  end
   scenario "when signing up and logging in" do
     lambda {sign_up}.should change(User, :count).by(1)
     expect(page).to have_content("Welcome, alice@example.com")
@@ -127,7 +139,7 @@ feature "Resetting a forgotten password" do
     fill_in 'email', with: 'khushkaran@me.com'
     User.any_instance.stub(:generate_password_token).and_return(true)
     stub_request(:post, "https://api:key-5nf12qypu5-l7q1-lfhjazkd6xj97d75@api.mailgun.net/v2/app23401830.mailgun.org/messages").
-            with(:body => {"from"=>"kh@example.com",
+            with(:body => {"from"=>"admin@bookmark-manager.com",
                            "subject"=>"Bookmark Manager Password Reset",
                            "text"=>"To valued user you have recently requested a password reset,\n      here is your reset url, please enter it into your browser: http://127.0.0.1:9393/users/reset/RESET_TOKEN",
                            "to"=>"khushkaran@me.com"},

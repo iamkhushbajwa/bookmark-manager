@@ -14,7 +14,7 @@ post '/users/retrieve' do
     message = "To valued user you have recently requested a password reset,
                here is your reset url, please enter it into your browser:
                http://127.0.0.1:9393/users/reset/#{user.password_token}"
-    Email.new("Bookmark Manager", user.email, "Bookmark Manager Password Reset", message)
+    Email.new("admin@bookmark-manager.com", user.email, "Bookmark Manager Password Reset", message)
     erb :"/users/email_sent"
   end
 end
