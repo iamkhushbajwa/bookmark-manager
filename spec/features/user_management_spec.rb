@@ -21,7 +21,7 @@ feature "User signs up" do
   end
 
   scenario "with a password that doesn't match" do
-    lambda {sign_up('a@a.com','pass','wrong')}.should change(User, :count).by(0)
+    lambda {sign_up('a','a@a.com','pass','wrong')}.should change(User, :count).by(0)
     expect(current_path).to eq('/users')
     expect(page).to have_content("Sorry, your passwords don't match")
   end
@@ -44,7 +44,7 @@ end
 
 feature "User signs in" do
   before(:each) do
-    User.create(:email => 'test@test.com', :password => 'test', :password_confirmation => 'test')
+    User.create(:username => 'test', :email => 'test@test.com', :password => 'test', :password_confirmation => 'test')
   end
 
   scenario "with correct credentials" do
@@ -72,7 +72,7 @@ end
 
 feature "User signs out" do
   before(:each) do
-    User.create(:email => 'test@test.com', :password => 'test', :password_confirmation => 'test')
+    User.create(:username => 'test', :email => 'test@test.com', :password => 'test', :password_confirmation => 'test')
   end
   scenario "while being signed in" do
     sign_in('test@test.com', 'test')

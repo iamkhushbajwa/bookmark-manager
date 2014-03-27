@@ -9,7 +9,8 @@ feature "Resetting a forgotten password" do
   before(:each) do
     User.create(
       :id => 1, 
-      :email => 'khushkaran@me.com', 
+      :email => 'test@example.com', 
+      :username => 'test',
       :password => 'test', 
       :password_confirmation => 'test', 
       :password_token => 'RESET_TOKEN', 
@@ -21,7 +22,7 @@ feature "Resetting a forgotten password" do
     click_on "Forgotten password?"
     expect(page).to have_content("Password Retrieval")
     expect(page).not_to have_content("Please log in")
-    fill_in 'email', with: 'khushkaran@me.com'
+    fill_in 'email', with: 'test@example.com'
     User.any_instance.stub(:generate_password_token).and_return(true)
     stub_http("admin@bookmark-manager.com",
               "Bookmark Manager Password Reset",
@@ -34,7 +35,7 @@ feature "Resetting a forgotten password" do
     fill_in 'password', with: 'test1'
     fill_in 'password_confirmation', with: 'test1'
     click_button 'Submit'
-    sign_in('khushkaran@me.com','test1')
+    sign_in('test@example.com','test1')
     expect(page).to have_content("Welcome, ")
   end
 end

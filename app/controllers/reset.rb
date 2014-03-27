@@ -22,15 +22,15 @@ end
 get '/users/reset/:token' do
   user = User.first(:password_token => params[:token])
   if !user
-    flash[:errors] = "Token is incorrect or has already been used"
-    redirect to('/users/retrieve')
+    flash[:errors] = ["Token is incorrect or has already been used"]
+    erb :"users/retrieve"
   else
     if (Time.now - Time.parse(user.password_token_timestamp.to_s)) < (60*60)
       @token = params[:token]
       erb :"/users/new_password"
     else
       flash[:errors] = "Token has expired, please generate a new token"
-      redirect to('/users/retrieve')
+      erb :"users/retrieve"
     end
   end
 end
@@ -39,14 +39,14 @@ post '/users/new_password' do
   user = User.first(:password_token => params[:token])
   if !user
     flash[:errors] = "An error occured!"
-    redirect to('/users/retrieve')
+    erb :"users/retrieve"
   else
     user.update(:password => params[:password], :password_confirmation => params[:password_confirmation], :password_token => "", :password_token_timestamp => nil)
     if user.save
       redirect to('/sessions/new')
     else
       flash.now[:errors] = user.errors.full_messages
-      redirect to('/users/retrieve')
+      erb :"users/retrieve"
     end
   end
 end

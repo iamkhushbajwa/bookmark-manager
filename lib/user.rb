@@ -9,6 +9,7 @@ class User
 
   property :id, Serial
   property :email, String, :unique => true, :message => "This email has already been taken", :format => :email_address, :required => true
+  property :username, String, :unique => true, :message => "This username has already been taken", :required => true
   property :password_digest, Text, :required => true
   property :password_token, Text
   property :password_token_timestamp, DateTime
