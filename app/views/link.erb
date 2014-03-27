@@ -17,7 +17,7 @@
 		<% end %>
 		added yesterday by <a class="user" href="#">
 		<% if User.get(link.user_id) %>
-			<%= User.get(link.user_id).email %>
+			<%= User.get(link.user_id).username %>
 		<% else %>
 			<%= "Anonymous" %>
 		<% end %>
