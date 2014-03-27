@@ -15,7 +15,7 @@ feature 'User browses the list of links' do
     to = "alice@example.com"
     stub_http(from, title, text,to)
     sign_up
-    add_link("http://www.lse.ac.uk", "London School of Economics", ['education'])
+    add_link("http://www.lse.ac.uk", "London School of Economics", ['education','finance','economics'])
     add_link("http://www.google.com", "Google", ['search'])
     add_link("http://www.bing.com", "Bing", ['search'])
     add_link("http://www.code.org", "Code.org", ['education'])
@@ -37,5 +37,10 @@ feature 'User browses the list of links' do
   scenario "Username is visible as the creator of a link" do
     visit '/'
     expect(page).to have_content(" by alice")
+  end
+
+  scenario "Tags are visible underneath the link" do
+    visit '/'
+    expect(page).to have_content("Education Finance Economics")
   end
 end
