@@ -1,5 +1,12 @@
 get '/sessions/new' do
-  current_user ? (redirect to('/')) : (erb :"sessions/new")
+  if current_user
+    flash.now[:errors] = ["You are already logged in"]
+    @links = Link.all
+    @available_tags = Tag.all
+    erb :index
+  else
+    erb :"sessions/new"
+  end
 end
 
 post '/sessions' do

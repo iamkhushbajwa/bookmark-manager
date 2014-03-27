@@ -2,7 +2,10 @@ require_relative 'reset'
 
 get '/users/new' do
   if current_user
-    redirect to('/')
+    flash.now[:errors] = ["You are already signed up"]
+    @links = Link.all
+    @available_tags = Tag.all
+    erb :index
   else
     @user = User.new
     erb :"users/new"

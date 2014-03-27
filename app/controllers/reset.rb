@@ -1,3 +1,5 @@
+require_relative '../email'
+
 get '/users/retrieve' do
   erb :"users/retrieve"
 end
@@ -9,18 +11,12 @@ post '/users/retrieve' do
     redirect to('/users/retrieve')
   else
     user.generate_password_token
-    send_password_token(user.password_token, user.email)
+    message = "To valued user you have recently requested a password reset,
+               here is your reset url, please enter it into your browser:
+               http://127.0.0.1:9393/users/reset/#{user.password_token}"
+    Email.new("Bookmark Manager", user.email, "Bookmark Manager Password Reset", message)
     erb :"/users/email_sent"
   end
-end
-
-def send_password_token(token,email)
-  RestClient.post API_URL+"/messages",
-    :from => "kh@example.com",
-    :to => email,
-    :subject => "Bookmark Manager Password Reset",
-    :text => "To valued user you have recently requested a password reset,
-      here is your reset url, please enter it into your browser: http://127.0.0.1:9393/users/reset/#{token}"
 end
 
 get '/users/reset/:token' do
