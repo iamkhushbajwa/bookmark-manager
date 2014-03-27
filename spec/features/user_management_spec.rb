@@ -97,11 +97,11 @@ feature "Favourites" do
   end
 
   scenario "Users can see their link, tags & favourites" do
-    User.create(:id => 20, :email => 'test@test.com', :password => 'test', :password_confirmation => 'test')
-    Link.create(:url => "http://www.google.com", :title => "Google", :tags => [Tag.first_or_create(:text => 'searching', :user_id => 20)], :user_id => 20)
-    Link.create(:url => "http://www.yahoo.com", :title => "Yahoo", :tags => [Tag.first_or_create(:text => 'entertainmenting', :user_id => 20)], :user_id => 20)
-    Link.create(:url => "http://www.bing.com", :title => "Bing", :tags => [Tag.first_or_create(:text => 'crap', :user_id => 21)], :user_id => 21)
-    Link.create(:url => "http://www.sam.com", :title => "Sam", :tags => [Tag.first_or_create(:text => 'trying', :user_id => 21)], :user_id => 21)
+    User.create(:id => 1, :email => 'test@test.com', :password => 'test', :password_confirmation => 'test')
+    Link.create(:url => "http://www.google.com", :title => "Google", :tags => [Tag.first_or_create(:text => 'searching', :user_id => 1)], :user_id => 1)
+    Link.create(:url => "http://www.yahoo.com", :title => "Yahoo", :tags => [Tag.first_or_create(:text => 'entertainmenting', :user_id => 1)], :user_id => 1)
+    Link.create(:url => "http://www.bing.com", :title => "Bing", :tags => [Tag.first_or_create(:text => 'crap', :user_id => 2)], :user_id => 2)
+    Link.create(:url => "http://www.sam.com", :title => "Sam", :tags => [Tag.first_or_create(:text => 'trying', :user_id => 2)], :user_id => 2)
     sign_in('test@test.com', 'test')
     visit '/'
     click_button 'Favourite Sam'
@@ -115,7 +115,6 @@ feature "Favourites" do
     expect(page).to have_content("Searching")
     expect(page).to have_content("Entertainmenting")
     expect(page).not_to have_content("Crap")
-
     expect(page).to have_content("Sam")
   end
 end

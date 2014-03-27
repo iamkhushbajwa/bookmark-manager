@@ -2,7 +2,7 @@ class Link
   include DataMapper::Resource
 
   property :id, Serial
-  property :title, String
+  property :title, String, :required => true
   property :url, String
   property :user_id, String
   has n, :tags, :through => Resource
