@@ -6,10 +6,11 @@ class User
   attr_accessor :password_confirmation
 
   validates_confirmation_of :password, :message => "Sorry, your passwords don't match"
+  validates_presence_of :password, :message => "Sorry, a password is required"
 
   property :id, Serial
-  property :email, String, :unique => true, :message => "This email has already been taken"
-  property :password_digest, Text
+  property :email, String, :unique => true, :message => "This email has already been taken", :format => :email_address, :required => true
+  property :password_digest, Text, :required => true
   property :password_token, Text
   property :password_token_timestamp, DateTime
   has n, :links, :through => Resource
