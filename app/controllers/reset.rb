@@ -10,6 +10,7 @@ post '/users/retrieve' do
   else
     user.generate_password_token
     send_password_token(user.password_token, user.email)
+    erb :"/users/email_sent"
   end
 end
 
