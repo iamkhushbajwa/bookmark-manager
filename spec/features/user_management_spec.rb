@@ -42,6 +42,14 @@ feature "User signs in" do
     sign_in('test@test.com', 'wrong')
     expect(page).not_to have_content("Welcome, test@test.com")
   end
+
+  scenario "then tries to sign in again" do
+    sign_in('test@test.com', 'test')
+    visit '/sessions/new'
+    expect(page).not_to have_content("Please log in")
+    expect(page).to have_content("Welcome, test@test.com")
+  end
+
 end
 
 feature "User signs out" do

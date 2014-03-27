@@ -46,7 +46,7 @@ post '/users/retrieve' do
     user.password_token = (1..64).map{('A'..'Z').to_a.sample}.join
     user.password_token_timestamp = Time.now
     user.save
-    # send_password_token(user.password_token, user.email)
+    send_password_token(user.password_token, user.email)
   end
 end
 
@@ -129,7 +129,7 @@ post '/users' do
 end
 
 get '/sessions/new' do
-  erb :"sessions/new"
+  current_user ? (redirect to('/')) : (erb :"sessions/new")
 end
 
 get '/users/current' do
