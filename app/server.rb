@@ -113,8 +113,12 @@ get '/tags/:text' do
 end
 
 get '/users/new' do
-  @user = User.new
-  erb :"users/new"
+  if current_user
+    redirect to('/')
+  else
+    @user = User.new
+    erb :"users/new"
+  end
 end
 
 post '/users' do

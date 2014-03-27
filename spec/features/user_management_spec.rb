@@ -18,8 +18,16 @@ feature "User signs up" do
 
   scenario "with an email that is already registered" do
     lambda { sign_up }.should change(User, :count).by(1)
+    click_button 'Sign out'
     lambda { sign_up }.should change(User, :count).by(0)
     expect(page).to have_content("This email has already been taken")
+  end
+
+  scenario "then tries to sign up again" do
+    sign_up
+    visit '/users/new'
+    expect(page).not_to have_content("Please Sign Up")
+    expect(page).to have_content("Welcome, alice@example.com")
   end
 
 end
