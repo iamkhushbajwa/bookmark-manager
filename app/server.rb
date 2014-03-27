@@ -9,7 +9,6 @@ require './lib/user'
 require './lib/tag'
 require_relative 'helpers/user_helper'
 require_relative 'data_mapper_setup'
-
 enable :sessions
 set :session_secret, 'super secret'
 use Rack::Flash
@@ -43,12 +42,12 @@ post '/users/retrieve' do
     flash[:errors] = "Email is incorrect"
     redirect to('/users/retrieve')
   else
-    user.password_token = (1..64).map{('A'..'Z').to_a.sample}.join
-    user.password_token_timestamp = Time.now
-    user.save
+    user.generate_password_token
     send_password_token(user.password_token, user.email)
   end
 end
+
+
 
 def send_password_token(token,email)
   RestClient.post API_URL+"/messages",
@@ -83,7 +82,6 @@ post '/users/new_password' do
   else
     user.update(:password => params[:password], :password_confirmation => params[:password_confirmation], :password_token => "", :password_token_timestamp => nil)
     if user.save
-      session[:user_id] = user.id
       redirect to('/sessions/new')
     else
       flash.now[:errors] = user.errors.full_messages

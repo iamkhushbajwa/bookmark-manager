@@ -2,6 +2,9 @@ ENV["RACK_ENV"] = 'test'
 require './app/server'
 require 'database_cleaner'
 require 'capybara/rspec'
+require 'webmock/rspec'
+
+WebMock.disable_net_connect!(allow_localhost: true)
 
 Capybara.app = Sinatra::Application
 
