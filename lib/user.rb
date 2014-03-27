@@ -6,7 +6,6 @@ class User
   attr_accessor :password_confirmation
 
   validates_confirmation_of :password, :message => "Sorry, your passwords don't match"
-  # validates_presence_of :password, :message => "Sorry, a password is required"
 
   property :id, Serial
   property :email, String, :unique => true, :message => "This email has already been taken", :format => :email_address, :required => true
