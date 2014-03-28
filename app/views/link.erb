@@ -10,9 +10,9 @@
 	<div class="description">
 		Lorum ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
 	</div>
-	<div class="link-tags">
+	<div class="link-tags-div">
 		<% link.tags.each do |tag| %>
-			<a href="/tags/<%= tag.text %>"><%= tag.text.capitalize %></a>
+			<a class="link-tags" href="/tags/<%= tag.text %>"><%= tag.text.capitalize %></a>
 		<% end %>
 	</div>
 
