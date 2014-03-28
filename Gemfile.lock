@@ -71,6 +71,7 @@ GEM
     multi_json (1.9.2)
     nokogiri (1.6.1)
       mini_portile (~> 0.5.0)
+    pg (0.17.1)
     rack (1.5.2)
     rack-flash3 (1.0.5)
       rack
@@ -117,6 +118,7 @@ DEPENDENCIES
   data_mapper
   database_cleaner
   dm-postgres-adapter
+  pg
   rack-flash3
   rest-client
   rspec

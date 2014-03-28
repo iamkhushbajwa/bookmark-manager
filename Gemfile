@@ -16,3 +16,7 @@ group :development, :test do
   gem 'webmock'
   gem 'show_me_the_cookies'
 end
+
+group :production do
+  gem 'pg'
+end
