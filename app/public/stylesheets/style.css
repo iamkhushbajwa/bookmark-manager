@@ -13,6 +13,10 @@ header{
 	padding: 10px 10px 10px 10px;
 }
 
+#logo{
+	min-width: 440px;
+}
+
 .logo{
 	color: #ed872d;
 	text-decoration: none;
@@ -93,7 +97,7 @@ a.welcome-message{
 	font-size:20px;
 	height:46px;
 	line-height:46px;
-	width:98px;
+	min-width:98px;
 	text-align:center;
 	text-shadow:1px 1px 0px #ce8e28;
 }
