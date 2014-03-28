@@ -10,12 +10,6 @@
 	<div class="description">
 		Lorum ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
 	</div>
-	<div class="link-tags-div">
-		<% link.tags.each do |tag| %>
-			<a class="link-tags" href="/tags/<%= tag.text %>"><%= tag.text.capitalize %></a>
-		<% end %>
-	</div>
-
 	<span class="source">
 		<% if link.users.count > 0 %>
 		<img class="fav-ico" src="/images/heart.ico"><%= link.users.count %>
@@ -28,4 +22,10 @@
 		<% end %>
 		</a>
 	</span>
+
+	<div class="link-tags-div">
+		<% link.tags.each do |tag| %>
+			<a class="link-tags" href="/tags/<%= tag.text %>"><%= tag.text.capitalize %></a>
+		<% end %>
+	</div>
 </li>

@@ -9,6 +9,8 @@ header{
 	background-color: #808080;
 	height: 60px;
 	display: flex;
+	height: auto;
+	padding: 10px 10px 10px 10px;
 }
 
 .logo{
