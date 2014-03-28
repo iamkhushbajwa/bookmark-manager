@@ -13,6 +13,7 @@ post '/sessions' do
   email, password = params[:email], params[:password]
   user = User.authenticate(email, password)
   if user
+    env['rack.session.options'].merge! expire_after: 2592000 if params[:remember_me] == "on"
     session[:user_id] = user.id
     redirect to('/')
   else
@@ -23,6 +24,7 @@ end
 
 delete '/sessions' do
   flash[:notice] = "Goodbye!"
+  env['rack.session.options'].merge! expire_after: 0
   session[:user_id] = nil
   redirect to('/')
 end
