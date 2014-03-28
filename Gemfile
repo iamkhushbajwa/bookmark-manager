@@ -14,4 +14,5 @@ group :development, :test do
   gem 'capybara'
   gem 'shotgun'
   gem 'webmock'
+  gem 'show_me_the_cookies'
 end

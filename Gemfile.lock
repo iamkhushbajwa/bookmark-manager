@@ -91,6 +91,8 @@ GEM
     safe_yaml (1.0.1)
     shotgun (0.9)
       rack (>= 1.0)
+    show_me_the_cookies (2.2.0)
+      capybara (~> 2.0)
     sinatra (1.4.4)
       rack (~> 1.4)
       rack-protection (~> 1.4)
@@ -119,6 +121,7 @@ DEPENDENCIES
   rest-client
   rspec
   shotgun
+  show_me_the_cookies
   sinatra
   sinatra-partial
   webmock
