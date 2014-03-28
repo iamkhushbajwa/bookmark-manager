@@ -24,7 +24,7 @@ end
 
 delete '/sessions' do
   flash[:notice] = "Goodbye!"
-  env['rack.session.options'].merge! expire_after: 0
   session[:user_id] = nil
   redirect to('/')
+  env['rack.session.options'].merge! expire_after: 0
 end
