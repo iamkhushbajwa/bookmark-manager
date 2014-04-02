@@ -1,12 +1,12 @@
 <li class="link">
 	<% if current_user %>
-	<form action="/favourite" method="post">
+	<!-- <form action="/favourite" method="post"> -->
 		<div class='star hollow'>&#9734;</div>
 		<div class='star solid'>&#9733;</div>
 		<!-- <button class="favourite" name="link_id" value="<%= link.id %>">
 			Favourite <%= link.title %>
 		</button> -->
-	</form>
+	<!-- </form> -->
 	<% end %>
 	<a class="title" href="<%= link.url %>"><%= link.title %></a>
 	<div class="description">
