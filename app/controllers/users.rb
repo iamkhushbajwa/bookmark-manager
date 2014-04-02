@@ -9,7 +9,7 @@ get '/users/new' do
     erb :index
   else
     @user = User.new
-    erb :"users/new"
+    erb :"users/new", :layout => !request.xhr?
   end
 end
 

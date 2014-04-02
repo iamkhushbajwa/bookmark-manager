@@ -5,7 +5,7 @@ get '/sessions/new' do
     @available_tags = Tag.all
     erb :index
   else
-    erb :"sessions/new"
+    erb :"sessions/new", :layout => !request.xhr?
   end
 end
 
