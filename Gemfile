@@ -15,7 +15,7 @@ group :development, :test do
   gem 'shotgun'
   gem 'webmock'
   gem 'show_me_the_cookies'
-  gem 'selenium-webdriver'
+  gem 'poltergeist'
 end
 
 group :production do
