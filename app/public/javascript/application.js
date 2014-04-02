@@ -4,7 +4,9 @@ function showLinkFavouritedNotice(link){
   var message = favourited ? name + " was added to favourites" : name + " was removed from favourites";
   var $flash = $("<div></div>").addClass('flash notice').html(message);
   $flash.appendTo('#flash-container');
-  window.setTimeout(function(){$flash.fadeOut();}, 3000);
+  window.setTimeout(function(){$flash.fadeOut(function(){
+    $(this).remove();
+  });}, 3000);
 }
 
 function addFavouritesHandler(){
