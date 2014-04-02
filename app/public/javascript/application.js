@@ -4,7 +4,9 @@ function showLinkFavouritedNotice(link){
   var message = favourited ? name + " was added to favourites" : name + " was removed from favourites";
   var $flash = $("<div></div>").addClass('flash notice').html(message);
   $flash.appendTo('#flash-container');
-  window.setTimeout(function(){$flash.fadeOut(function(){
+  $flash.hide();
+  $flash.slideDown();
+  window.setTimeout(function(){$flash.slideUp(function(){
     $(this).remove();
   });}, 3000);
 }
@@ -25,9 +27,20 @@ function prepareRemoteFormsHandler(){
     $.get($(this).attr("href"), function(data) {
       if($('#ajax-form').length == 0){
         $('#container').prepend("<div id='ajax-form'></div>");
+        prepareFormHandler();
       }
       $('#container #ajax-form').html(data);
     });
+    event.preventDefault();
+  });
+}
+
+function prepareFormHandler(){
+  var form = $('#container #ajax-form form');
+  form.submit(function(event){
+    var addLink = function(data){ $('#links').prepend(data); }
+    var data = form.serialize();
+    $.post(form.attr('action'), data, addLink);
     event.preventDefault();
   });
 }
