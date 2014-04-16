@@ -1,0 +1,93 @@
+@media(max-width: 850px){
+  #container{
+    margin: 10px;
+  }
+
+  #logo{
+    min-width: 90px;
+    padding-top: 10px;
+  }
+
+  .logo {
+    font-size: 20px;
+  }
+
+  header{
+    height: 50px;
+    padding: 4px 4px 4px 4px;
+  }
+
+  .user-button {
+    font-size: 12px;
+    min-width:70px;
+    height: 20px;
+    line-height:19px;
+  }
+
+  #add-link{
+    padding: 8px 0 0 0px;
+  }
+
+  #user-links{
+    float: left;
+    padding: 8px 0 0 5%;
+    display: flex;
+  }
+
+  .link-tags {
+    font-size:10px;
+    font-weight:bold;
+    line-height:18px;
+    padding: 0 5px 0 5px;
+    height: 20px;
+  }
+}
+
+@media(max-width: 320px){
+
+  #logo{
+    width: 90px;
+    margin-top: -11px;
+  }
+
+  .logo {
+    font-size: 20px;
+  }
+
+  header{
+    height: 50px;
+    padding: 5px 0px 0px 5px;
+  }
+
+  .user-button {
+    font-size: 12px;
+    min-width:70px;
+    height: 20px;
+    line-height:19px;
+  }
+
+  #add-link{
+    padding: 8px 0 0 0px;
+  }
+
+  #user-links{
+    float: left;
+    padding: 8px 0 0 1%;
+    display: flex;
+  }
+
+  .link-tags {
+    font-size:10px;
+    font-weight:bold;
+    line-height:18px;
+    padding: 0 5px 0 5px;
+    height: 20px;
+  }
+
+  #makersacademy-logo{
+    width: 50%;
+  }
+  #makersacademy-logo img{
+    width: 50%;
+  }
+}

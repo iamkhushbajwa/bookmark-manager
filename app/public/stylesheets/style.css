@@ -48,7 +48,6 @@ a.user-button.highlighted{
 	background:-moz-linear-gradient( center top, #446ccf 5%, #1164b4 100% );
 	-webkit-box-shadow:inset 0px 1px 0px 0px #6082b6;-moz-box-shadow:inset 0px 1px 0px 0px #6082b6;box-shadow:inset 0px 1px 0px 0px #6082b6;
 	border:2px solid #6082b6;
-	width:110px;
 	text-indent:-5px;
 }
 
