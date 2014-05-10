@@ -1,4 +1,4 @@
-Bookmark Manager
+Bookmark Manager [![Code Climate](https://codeclimate.com/github/khushkaran/bookmark-manager.png)](https://codeclimate.com/github/khushkaran/bookmark-manager)
 ---
 ![](bookmark-manager.png?raw=true)
 
